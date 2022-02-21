@@ -11,6 +11,7 @@ let currentRoll = 0;
 function winner() {
   rollBtn.style.display = "none";
   resetBtn.style.display = "block";
+  doubleBtn.style.display = "none";
 }
 
 //variables used to store references to DOM nodes
@@ -125,6 +126,7 @@ doubleBtn.addEventListener("click", function () {
 
 resetBtn.addEventListener("click", function () {
   reset();
+  doubleBtn.style.display = `block`;
 });
 
 function reset() {
@@ -157,6 +159,7 @@ function fairGame() {
     message.textContent = `Player 1 wins in ${player1turns} turns`;
     rollBtn.style.display = "none";
     resetBtn.style.display = "block";
+    doubleBtn.style.display = `none`;
   }
   // player 2 score>player 1 after fair rolls
   else if (player1turns === player2turns && player1Score < player2Score) {
@@ -164,6 +167,7 @@ function fairGame() {
     rollBtn.style.display = "none";
     resetBtn.style.display = "block";
     console.log(`player 2's last roll made them win`);
+    doubleBtn.style.display = `none`;
   }
   //TIE after fair rolls
   else if (player1turns === player2turns && player1Score === player2Score) {
@@ -171,6 +175,7 @@ function fairGame() {
     rollBtn.style.display = "none";
     resetBtn.style.display = "block";
     console.log(`it's a tie`);
+    doubleBtn.style.display = `none`;
   }
 }
 
@@ -210,3 +215,7 @@ and if !player1Turn is false then player1Turn = true
 //while a function that checks if its 5 or 6 is happening
 //if its not a 5 or 6 give them negative 6
 //if it is, give them multiply their result by 2
+
+//make function for
+//if they click reset game double or nothing appears
+//and then make it so after theres a winner its hidden
